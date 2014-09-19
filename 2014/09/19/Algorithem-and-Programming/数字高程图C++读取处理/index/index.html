@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Algorithem and Programming-数字高程图矩阵数据C++程序读取分析 | KillerLegend&#39;s  Blog</title>
+  <meta name="author" content="KillerLegend">
+  
+  <meta name="description" content="给定数字高程图,读取其中的数据,首先需要使用Matlab的imread命令读出来,可以保存为.txt文件,然后用下面的C++程序读出:">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Algorithem and Programming-数字高程图矩阵数据C++程序读取分析"/>
+  <meta property="og:site_name" content="KillerLegend&#39;s  Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+  
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="canonical" href="http://ikey4u.com/2014/09/19/Algorithem-and-Programming/数字高程图C++读取处理/index/" />
+  <link rel="alternate" href="/atom.xml" title="KillerLegend&#39;s  Blog" type="application/atom+xml">
+  
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45991394-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="blog-header">
+  <h1><a href="/">KillerLegend&#39;s  Blog</a></h1>
+  <h2><a href="/">Signature:喜欢雨的人大概也喜欢雪吧......</a></h2>
+</div>
+<nav id="main-nav" class="blog-nav">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/About">关于我</a></li>
+    
+      <li><a href="/">每日一句:If you never give up,the god will help you!</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+</header>
+  <div id="content" class="inner">
+    
+      <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-09-18T16:00:00.000Z"><a href="/2014/09/19/Algorithem-and-Programming/数字高程图C++读取处理/index/">Sep 19 2014</a></time>
+      
+      
+  
+    <h1 class="title">Algorithem and Programming-数字高程图矩阵数据C++程序读取分析</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>给定数字高程图,读取其中的数据,首先需要使用Matlab的imread命令读出来,可以保存为.txt文件,然后用下面的C++程序读出:<br><a id="more"></a></p>
+<figure class="highlight C++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">//Attachment3's  MAX is 2300 but 1000 for attachment4.</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> MAX  2300</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> FINAL 23*23</span></div><div class="line"><span class="keyword">int</span> data3[MAX][MAX];</div><div class="line"><span class="keyword">char</span> tmp[<span class="number">4</span>];<span class="comment">//variable to record the DEM data</span></div><div class="line"><span class="keyword">bool</span> result[FINAL][FINAL];</div><div class="line"><span class="keyword">bool</span> isOk(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> delta,<span class="keyword">int</span> precision);</div><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">	<span class="comment">/*save the data into array*/</span></div><div class="line">	<span class="built_in">memset</span>(data3,<span class="number">0</span>,<span class="keyword">sizeof</span>(data3));<span class="comment">//initialize</span></div><div class="line">	<span class="built_in">memset</span>(result,<span class="keyword">false</span>,<span class="keyword">sizeof</span>(result));</div><div class="line">	FILE* file = fopen(<span class="string">"data3.txt"</span>,<span class="string">"r"</span>);<span class="comment">//get the file stream</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;MAX;++i)</div><div class="line">	{</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;MAX;++j)</div><div class="line">		{</div><div class="line">			fread(tmp,<span class="keyword">sizeof</span>(<span class="keyword">int</span>),<span class="number">1</span>,file);<span class="comment">//one at a time</span></div><div class="line">			data3[i][j]=atoi(tmp);<span class="comment">//convert character to integer</span></div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="comment">/* regard the array as two-dimension matrix then deal with the unit which size is 100*100 one by one*/</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2300</span>;i+=<span class="number">100</span>)</div><div class="line">	{</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2300</span>;j+=<span class="number">100</span>)</div><div class="line">		{</div><div class="line">			result[i/<span class="number">100</span>][j/<span class="number">100</span>]=isOk(i,j,<span class="number">100</span>,<span class="number">20</span>);<span class="comment">//set the precision as to 20 </span></div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="comment">//print the result </span></div><div class="line">	<span class="keyword">int</span> disMin=<span class="number">11</span>+<span class="number">11</span>,disTmp;<span class="comment">//define the  lowest distance from the center,define the temporary variable</span></div><div class="line">	<span class="keyword">int</span> x,y;<span class="comment">//the optimal coordination</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">23</span>;++i)</div><div class="line">	{</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">23</span>;++j)</div><div class="line">		{</div><div class="line">			<span class="comment">// if(i==11 && j==11) cout&lt;&lt;"*";//debug</span></div><div class="line">			<span class="keyword">if</span>(result[i][j]) <span class="built_in">cout</span>&lt;&lt;<span class="string">"1 "</span>;<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"0 "</span>;</div><div class="line">			<span class="keyword">if</span>(result[i][j])</div><div class="line">			{</div><div class="line">				disTmp=<span class="built_in">abs</span>(<span class="number">11</span>-i)+<span class="built_in">abs</span>(<span class="number">11</span>-j);<span class="comment">//obtain the Manhattan distance</span></div><div class="line">				<span class="keyword">if</span>(disTmp&lt;disMin) disMin=disTmp,x=i,y=j;</div><div class="line">			}</div><div class="line">		}</div><div class="line">		<span class="built_in">cout</span>&lt;&lt;endl;<span class="comment">//debug</span></div><div class="line">		<span class="comment">// if(i==10||i==11) cout&lt;&lt;endl;//debug</span></div><div class="line">	}</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"The optimal point's coordinates is : "</span>&lt;&lt;<span class="string">"i="</span>&lt;&lt;x&lt;&lt;<span class="string">" j="</span>&lt;&lt;y&lt;&lt;endl;</div><div class="line">	fclose(file);</div><div class="line">	<span class="comment">// for(int i=0;i&lt;10;++i)	cout&lt;&lt;data3[i][0]&lt;&lt;endl;//debug</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div><div class="line"><span class="keyword">bool</span> isOk(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> delta,<span class="keyword">int</span> precision)</div><div class="line">{</div><div class="line">	<span class="comment">// printf("[%d %d]&lt;-&gt;[%d %d]\n",a,b,a+delta-1,b+delta-1);//debug</span></div><div class="line">	<span class="keyword">int</span> minNum=data3[a][b];</div><div class="line">	<span class="keyword">int</span> maxNum=data3[a][b];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=a;i&lt;a+delta;++i)</div><div class="line">	{</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=b;j&lt;b+delta;++j)</div><div class="line">		{</div><div class="line">			<span class="keyword">if</span>(data3[i][j]&lt;minNum) minNum=data3[i][j];</div><div class="line">			<span class="keyword">if</span>(data3[i][j]&gt;maxNum) maxNum=data3[i][j];</div><div class="line">			<span class="keyword">if</span>(maxNum-minNum&gt;precision) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		}</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"><span class="comment">/*makefile is as follow:</span></div><div class="line">default:</div><div class="line">	@g++ main.cpp -o main</div><div class="line">	@main</div><div class="line"> */</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<div><br>    <p style="border-top: #e0e0e0 1px dashed; border-right: #e0e0e0 1px dashed; border-bottom: #e0e0e0 1px dashed; border-left: #e0e0e0 1px dashed;
+               padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 60px;
+               background: url(http://thumbsnap.com/s/k4jZb9ch.png) #e5f1f4 no-repeat 1% 30%;
+               font-family: 微软雅黑; font-size:11px;"><br>            <br><br>            作者：<a href="http://www.ikey4u.com" target="_blank">KillerLegend</a><br>            <br><br>            出处：<a href="http://www.ikey4u.com" target="_blank">http://www.ikey4u.com</a><br>            <br>分享最新的资源,分享个人所得,欢迎关注我的新浪微博:<a href="http://weibo.com/u/5293648175" target="_blank">ikey4u</a><br><br>            本文版权归本人所有，欢迎转载，但未经本人同意请保留此段声明，且在文章页面明显位置给出原文连接，对您的厚道致敬,!<br>    </p><br></div>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/算法编程/">算法编程</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+<!-- Duoshuo Comment BEGIN 123 -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ikey4u"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</section>
+
+</div></div>
+      <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Categories/目录</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/人工智能/">人工智能</a><small>1</small></li>
+  
+    <li><a href="/categories/信息安全/">信息安全</a><small>1</small></li>
+  
+    <li><a href="/categories/杂类归档/">杂类归档</a><small>1</small></li>
+  
+    <li><a href="/categories/移动互联/">移动互联</a><small>1</small></li>
+  
+    <li><a href="/categories/算法编程/">算法编程</a><small>1</small></li>
+  
+    <li><a href="/categories/阅读感悟/">阅读感悟</a><small>1</small></li>
+  
+    <li><a href="/categories/音乐运动/">音乐运动</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+  <div class="widget tag">
+<h3 class="title">Blogroll/友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.cnblogs.com/killerlegend/" title="KillerLegend-cnblogs" target="_blank">My CNBLOGS</a></li>
+<li><a href="https://twitter.com/AmgusmeLi" title="KillerLegend-Twitter" target="_blank">My Twiter</a></li>
+<li><a href="https://www.facebook.com/angusyoume" title="KillerLegend-Facebook" target="_blank">My Facebook</a></li>
+</ul>
+</div>
+
+</aside>
+    
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="aligncenter">
+  
+  &copy; 2014 KillerLegend
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<div id="scroll2top">
+<img src="/scroll2top/arrow.png"/>
+</div>
+<script src="/scroll2top/scroll2top.min.js"></script>
+<div id="winterland">
+  <canvas></canvas>
+</div>
+<script src="/js/winterland.min.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script src="https://www.zybuluo.com/static/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</script>
+  <!-- Baidu Button BEGIN -->
+    <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;mini=1&amp;pos=left&amp;uid=6871901" ></script>
+    <script type="text/javascript" id="bdshell_js"></script>
+    <script type="text/javascript" src="/js/bds_animate.min.js"></script>
+    <script type="text/javascript">
+    var bds_config={"bdTop":0};
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+    </script>
+ <!-- Baidu Button END -->
+
+</body>
+</html>
