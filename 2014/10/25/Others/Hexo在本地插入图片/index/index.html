@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mobile and Internet-Windows10技术预览版下载地址 | KillerLegend&#39;s  Blog</title>
+  <title>Others-Hexo在本地插入图片 | KillerLegend&#39;s  Blog</title>
   <meta name="author" content="KillerLegend">
   
-  <meta name="description" content="下面是windows10技术预览版的直接下载地址,前面几个下载源为微软官方,最后一个为国内百度云的,但是我下载的时候,似乎微软官方源下载速度更快.">
+  <meta name="description" content="在本地用Hexo写文章时,多次插入图片都不能成功,终于在今天搞定了,分享一下解决方法…">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Mobile and Internet-Windows10技术预览版下载地址"/>
+  <meta property="og:title" content="Others-Hexo在本地插入图片"/>
   <meta property="og:site_name" content="KillerLegend&#39;s  Blog"/>
 
   
@@ -19,7 +19,7 @@
   
   
   <link href="/favicon.ico" rel="icon" type="image/x-ico">
-  <link rel="canonical" href="http://ikey4u.com/2014/10/02/Mobile-and-Internet/Windows10技术预览版下载地址/index/" />
+  <link rel="canonical" href="http://ikey4u.com/2014/10/25/Others/Hexo在本地插入图片/index/" />
   <link rel="alternate" href="/atom.xml" title="KillerLegend&#39;s  Blog" type="application/atom+xml">
   
   
@@ -87,33 +87,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-10-02T02:29:00.000Z"><a href="/2014/10/02/Mobile-and-Internet/Windows10技术预览版下载地址/index/">Oct 2 2014</a></time>
+        <time datetime="2014-10-25T13:26:00.000Z"><a href="/2014/10/25/Others/Hexo在本地插入图片/index/">Oct 25 2014</a></time>
       
       
   
-    <h1 class="title">Mobile and Internet-Windows10技术预览版下载地址</h1>
+    <h1 class="title">Others-Hexo在本地插入图片</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>下面是windows10技术预览版的直接下载地址,前面几个下载源为微软官方,最后一个为国内百度云的,但是我下载的时候,似乎微软官方源下载速度更快.<br><a id="more"></a><br>产品密钥：NKJFK-GPHP7-G8C3J-P6JXR-HQRJR</p>
-<p>Windows 10 简体中文 官方原版镜像下载：</p>
-<blockquote>
-<p>中文（简体）64 位 (x64) (4.26 GB)<br>下载：<a href="http://iso.esd.microsoft.com/W9TPI/FD54DF81A4CCF4511BA1445C606DDBA2/WindowsTechnicalPreview-x64-ZH-CN.iso" target="_blank" rel="external">@——下载——@</a><br>中文（简体）32 位 (x86) (3.28 GB)<br>下载：<a href="http://iso.esd.microsoft.com/W9TPI/FD54DF81A4CCF4511BA1445C606DDBA2/WindowsTechnicalPreview-x86-ZH-CN.iso" target="_blank" rel="external">@——下载——@</a></p>
-</blockquote>
-<p>Windows 10 英文版 官方原版镜像下载：</p>
-<blockquote>
-<p>64bit：<a href="http://iso.esd.microsoft.com/W9TPI/FD54DF81A4CCF4511BA1445C606DDBA2/WindowsTechnicalPreview-x64-EN-US.iso  4.1GB" target="_blank" rel="external">@——下载——@</a><br>32bit：<a href="http://iso.esd.microsoft.com/W9TPI/FD54DF81A4CCF4511BA1445C606DDBA2/WindowsTechnicalPreview-x86-EN-US.iso  3.16GB" target="_blank" rel="external">@——下载——@</a></p>
-</blockquote>
-<p>微软官网下载页面:</p>
-<blockquote>
-<p>注册下载:<a href="http://windows.microsoft.com/zh-cn/windows/preview-iso" target="_blank" rel="external">@——下载——@</a></p>
-</blockquote>
-<p>最后提供一个国内百度云的下载地址:</p>
-<blockquote>
-<p>中文简体32bit 链接：<a href="http://pan.baidu.com/s/1i3IIeFV" target="_blank" rel="external">@——下载——@</a> 密码：jl2y<br>中文件及64bit 链接：<a href="http://pan.baidu.com/s/1bnha9n5" target="_blank" rel="external">@——下载——@</a> 密码：hkkj</p>
-</blockquote>
+        <p>在本地用Hexo写文章时,多次插入图片都不能成功,终于在今天搞定了,分享一下解决方法…<br><a id="more"></a></p>
+<p>1.在根目录下的_config.yml中启用post_asset_folder.<br><code>post_asset_folder: true</code><br>2.在source_posts\Others(这个是我的hexo示例目录,在你的Hexo中请对号入座)下新建一个文件夹用于存放一篇文章,假设文件夹名字为图片测试(也就是文章名字).</p>
+<p>3.在source_posts\Others\图片测试\下写一个md文件,假设名字为test.md</p>
+<p>4.<b>那么要引用本地资源,务必在此目录下新建一个名称也为test的文件夹,然后在test文件夹里面放置图片</b></p>
+<p>5.比如我新建了一个image的文件夹,放入一张linux.png图片,那么我在写md的时候就可以这样引用:<br><code>![linux](./image/linux.png)</code><br>文件夹目录如下:<br> <img src="./image/dir.png" alt="linux"><br>这一点非常重要,否则无法正常显示.<br>6.OK,完成后,运行下面命令<br><code>hexo clean &amp; hexo g &amp; hexo s</code><br>查看浏览器.</p>
 <div><br>    <p style="border-top: #e0e0e0 1px dashed; border-right: #e0e0e0 1px dashed; border-bottom: #e0e0e0 1px dashed; border-left: #e0e0e0 1px dashed;
                padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 60px;
                background: url(http://thumbsnap.com/s/k4jZb9ch.png) #e5f1f4 no-repeat 1% 30%;
@@ -126,7 +114,7 @@
         
   
   <div class="categories">
-    <a href="/categories/移动互联/">移动互联</a>
+    <a href="/categories/杂类归档/">杂类归档</a>
   </div>
 
         
